@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------------------------------------------------------
+   Base — warm cream paper, warm near-black ink, serif everywhere.
+----------------------------------------------------------------------------- */
+html {
+  background-color: #ebe3d6;
+  color: #2a231d;
+}
+
+body {
+  font-family: "EB Garamond", Garamond, Georgia, serif;
+  color: #2a231d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga", "kern", "onum";
+  /* Parchment stack: ivory bloom + soft white veil + warm vertical depth */
+  background-color: #efe6d8;
+  background-image:
+    radial-gradient(
+      ellipse 130% 70% at 50% -25%,
+      rgba(253, 252, 248, 0.85) 0%,
+      transparent 52%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0) 28%
+    ),
+    linear-gradient(168deg, #f6f0e6 0%, #efe6da 42%, #e8dfd0 100%);
+}
+
+/* Display serif used for titles */
+.font-display {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-weight: 300;
+}
+
+/* Small-caps label style */
+.label {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6e6558;
+  font-weight: 500;
+}
+
+/* -----------------------------------------------------------------------------
+   Film grain — two fixed layers (see GrainOverlay.jsx)
+----------------------------------------------------------------------------- */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+
+/* Coarser grain, pulls UI toward paper / print */
+.grain-overlay--film {
+  z-index: 100;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.15 0 0 0 0 0.12 0 0 0 0.92 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Finer sparkle — lifts highlights without looking digital */
+.grain-overlay--sheen {
+  z-index: 99;
+  opacity: 0.055;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='1.65' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.92 0 0 0 0 0.85 0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23f)'/></svg>");
+}
+
+/* A slow, gentle fade-in for images */
+.img-fade {
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+.img-fade.loaded {
+  opacity: 1;
+}
+
+/* -----------------------------------------------------------------------------
+   Subtle vignette on hero sections
+----------------------------------------------------------------------------- */
+.hero-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  /* Bottom weight keeps type readable on bright skies and pale walls */
+  background:
+    linear-gradient(
+      to top,
+      rgba(15, 12, 10, 0.82) 0%,
+      rgba(15, 12, 10, 0.45) 38%,
+      rgba(15, 12, 10, 0.12) 62%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+}
+
+@media (min-width: 768px) {
+  .hero-vignette::after {
+    background:
+      linear-gradient(
+        to right,
+        rgba(15, 12, 10, 0.78) 0%,
+        rgba(15, 12, 10, 0.35) 42%,
+        rgba(15, 12, 10, 0.08) 65%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse at center,
+        transparent 50%,
+        rgba(0, 0, 0, 0.18) 100%
+      );
+  }
+}
+
+/* Thin rule — soft gold, classical */
+.rule {
+  display: block;
+  width: 4.5rem;
+  height: 1px;
+  margin: 2rem auto;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(184, 154, 106, 0.45),
+    rgba(253, 252, 248, 0.9),
+    rgba(184, 154, 106, 0.45),
+    transparent
+  );
+  opacity: 0.95;
+}
+
+/* Link hover — slow, subtle */
+a {
+  transition: color 220ms ease, opacity 220ms ease;
+}
+
+/* Scrollbar styling (mostly for desktop) */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f0e9df;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #d9c9ae, #c9b89a);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 253, 248, 0.35);
+  }
+}
+
+/* Selection — warm gold-brown on ivory */
+::selection {
+  background-color: rgba(184, 154, 106, 0.45);
+  color: #1f1a16;
+}
