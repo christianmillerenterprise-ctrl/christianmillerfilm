@@ -3,7 +3,7 @@ import InstagramLink from "@/components/InstagramLink";
 
 export default function Nav() {
   return (
-    <header className="relative z-40 border-b border-gold/15 bg-gradient-to-b from-ivory/50 via-paper/30 to-transparent">
+    <header className="relative z-40 border-b border-gold/15 bg-gradient-to-b from-ivory/50 via-paper/30 to-transparent shadow-[0_12px_36px_-16px_rgba(184,154,106,0.14)]">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 md:px-10 md:py-7">
         <Link
           href="/"

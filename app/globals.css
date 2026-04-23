@@ -5,6 +5,13 @@
 /* -----------------------------------------------------------------------------
    Base — warm cream paper, warm near-black ink, serif everywhere.
 ----------------------------------------------------------------------------- */
+:root {
+  /* Soft golden halation — film-adjacent glow, keep alphas low */
+  --halation-gold: rgba(210, 178, 128, 0.14);
+  --halation-gold-deep: rgba(184, 154, 106, 0.11);
+  --halation-gold-mist: rgba(245, 228, 198, 0.16);
+}
+
 html {
   background-color: #ebe3d6;
   color: #2a231d;
@@ -29,7 +36,22 @@ body {
       rgba(255, 255, 255, 0.22) 0%,
       rgba(255, 255, 255, 0) 28%
     ),
-    linear-gradient(168deg, #f6f0e6 0%, #efe6da 42%, #e8dfd0 100%);
+    linear-gradient(168deg, #f6f0e6 0%, #efe6da 42%, #e8dfd0 100%),
+    radial-gradient(
+      ellipse 120% 55% at 50% -18%,
+      var(--halation-gold-mist),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse 90% 50% at 100% 0%,
+      var(--halation-gold),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse 90% 50% at 0% 0%,
+      var(--halation-gold),
+      transparent 48%
+    );
 }
 
 /* Display serif used for titles */
@@ -92,7 +114,7 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  /* Bottom weight keeps type readable on bright skies and pale walls */
+  /* Bottom weight keeps type readable; back layer adds warm golden halation */
   background:
     linear-gradient(
       to top,
@@ -105,6 +127,21 @@ body {
       ellipse at center,
       transparent 50%,
       rgba(0, 0, 0, 0.2) 100%
+    ),
+    radial-gradient(
+      ellipse 95% 58% at 50% 88%,
+      rgba(212, 175, 118, 0.12),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 70% 45% at 18% 22%,
+      rgba(232, 205, 160, 0.07),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 45% at 82% 24%,
+      rgba(232, 205, 160, 0.07),
+      transparent 55%
     );
 }
 
@@ -122,8 +159,53 @@ body {
         ellipse at center,
         transparent 50%,
         rgba(0, 0, 0, 0.18) 100%
+      ),
+      radial-gradient(
+        ellipse 85% 55% at 50% 92%,
+        rgba(198, 165, 110, 0.1),
+        transparent 58%
+      ),
+      radial-gradient(
+        ellipse 55% 40% at 12% 28%,
+        rgba(232, 205, 160, 0.06),
+        transparent 52%
+      ),
+      radial-gradient(
+        ellipse 50% 38% at 88% 30%,
+        rgba(232, 205, 160, 0.06),
+        transparent 52%
       );
   }
+}
+
+/* Gold-framed surfaces — soft outer bloom + depth */
+.halation-frame {
+  box-shadow:
+    0 0 0 1px rgba(184, 154, 106, 0.14),
+    0 1px 2px rgba(42, 35, 29, 0.04),
+    0 0 32px -6px rgba(228, 200, 155, 0.2),
+    0 0 64px -14px rgba(184, 154, 106, 0.12),
+    0 14px 44px rgba(42, 35, 29, 0.09);
+}
+
+/* Section wash — optional corner warmth (pointer-events none in markup) */
+.halation-ambient {
+  background:
+    radial-gradient(
+      ellipse 75% 55% at 0% 0%,
+      var(--halation-gold-deep),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 75% 55% at 100% 0%,
+      var(--halation-gold-deep),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 90% 50% at 50% 100%,
+      rgba(184, 154, 106, 0.07),
+      transparent 55%
+    );
 }
 
 /* Thin rule — soft gold, classical */
@@ -142,6 +224,16 @@ body {
     transparent
   );
   opacity: 0.95;
+  box-shadow: 0 0 28px rgba(184, 154, 106, 0.14);
+}
+
+/* Title card on dark heroes — faint gold rim-glow behind glass */
+.halation-glass-panel {
+  box-shadow:
+    0 0 0 1px rgba(255, 253, 248, 0.1),
+    0 0 56px -12px rgba(210, 175, 120, 0.22),
+    0 0 88px -24px rgba(184, 154, 106, 0.12),
+    0 14px 44px rgba(0, 0, 0, 0.38);
 }
 
 /* Link hover — slow, subtle */

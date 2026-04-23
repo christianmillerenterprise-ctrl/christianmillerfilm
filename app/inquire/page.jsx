@@ -21,7 +21,7 @@ export default function InquirePage() {
         {/* Side image — fills the mat; object-cover avoids letterboxing inside the frame */}
         <div className="hidden md:col-span-6 md:block">
           <div className="md:sticky md:top-28 md:self-start">
-            <div className="overflow-hidden rounded-sm border-2 border-gold bg-paper shadow-[0_12px_40px_rgba(42,35,29,0.1)]">
+            <div className="halation-frame overflow-hidden rounded-sm border-2 border-gold bg-paper">
               <div className="relative h-[min(88vh,920px)] w-full min-h-[560px] overflow-hidden bg-ink/10">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

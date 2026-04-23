@@ -42,7 +42,7 @@ export default function ShootPage({ params }) {
         />
         <div className="absolute inset-0 z-[2] flex items-end">
           <div className="max-w-6xl w-full mx-auto px-6 md:px-10 pb-12 md:pb-14">
-            <div className="inline-block max-w-3xl rounded-sm bg-black/35 px-5 py-5 md:px-6 md:py-6 backdrop-blur-[2px] border border-white/10 text-paper shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+            <div className="halation-glass-panel inline-block max-w-3xl rounded-sm bg-black/35 px-5 py-5 md:px-6 md:py-6 backdrop-blur-[2px] border border-white/10 text-paper">
               <p className="label tracking-widest2 text-paper/95">
                 {shoot.subtitle}
               </p>
@@ -55,8 +55,12 @@ export default function ShootPage({ params }) {
       </section>
 
       {/* Description */}
-      <section className="border-y border-hairline/80 bg-wash py-12 md:py-16">
-        <div className="mx-auto max-w-prose2 px-6 md:px-10">
+      <section className="relative overflow-hidden border-y border-hairline/80 bg-wash py-12 md:py-16">
+        <div
+          className="pointer-events-none absolute inset-0 halation-ambient opacity-50"
+          aria-hidden
+        />
+        <div className="relative z-[1] mx-auto max-w-prose2 px-6 md:px-10">
           <p className="label mb-3">The story</p>
           {shoot.description?.map((para, i) => (
             <p

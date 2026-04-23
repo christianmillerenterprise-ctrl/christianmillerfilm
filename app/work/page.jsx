@@ -12,6 +12,10 @@ export default function WorkIndexPage() {
     <>
       <section className="relative overflow-hidden border-b border-gold/10 bg-wash">
         <div
+          className="pointer-events-none absolute inset-0 halation-ambient opacity-70"
+          aria-hidden
+        />
+        <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_88%_65%_at_50%_0%,rgba(253,252,248,0.75),transparent_58%)]"
           aria-hidden
         />

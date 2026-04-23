@@ -7,6 +7,8 @@ const INTERVAL_MS = 6000;
 /**
  * Home hero — photographs fill the section edge-to-edge (object-cover). Copy
  * sits about one-third up from the bottom, centered. Requires landscape-oriented sources.
+ * On narrow viewports the crop is severe; object-position is biased slightly
+ * above geometric center so subjects and faces read nearer the middle.
  *
  * @param {{ images: string[]; children: import("react").ReactNode }} props
  */
@@ -69,7 +71,7 @@ export default function HomeHeroCarousel({ images, children }) {
                 : ""
             }
             aria-hidden={i !== active}
-            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[1000ms] ease-in-out ${
+            className={`absolute inset-0 h-full w-full object-cover object-[50%_42%] transition-opacity duration-[1000ms] ease-in-out md:object-center ${
               i === active ? "z-[1] opacity-100" : "z-0 opacity-0"
             }`}
           />

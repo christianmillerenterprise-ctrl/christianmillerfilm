@@ -7,7 +7,8 @@ const INTERVAL_MS = 5200;
 
 /**
  * Work teaser on the home page — headline and CTA above a compact, gold-framed
- * carousel (hero carousel at top of page stays unframed).
+ * carousel (hero carousel at top of page stays unframed). On small screens,
+ * object-position is nudged above center so figures stay visually centered.
  *
  * @param {{ images: string[] }} props
  */
@@ -69,7 +70,7 @@ export default function HomeWorkCarousel({ images }) {
         aria-roledescription="carousel"
         aria-label="Selected work — rotating photographs"
       >
-        <div className="overflow-hidden rounded-sm border-2 border-gold bg-paper shadow-[0_12px_40px_rgba(42,35,29,0.1)]">
+        <div className="halation-frame overflow-hidden rounded-sm border-2 border-gold bg-paper">
           <div className="relative mx-auto aspect-video w-full max-w-xl overflow-hidden bg-ink/10 sm:max-w-2xl md:max-w-3xl">
               {images.map((src, i) => (
                 // eslint-disable-next-line @next/next/no-img-element -- static paths, fade stack
@@ -82,7 +83,7 @@ export default function HomeWorkCarousel({ images }) {
                       : ""
                   }
                   aria-hidden={i !== active}
-                  className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[1000ms] ease-in-out ${
+                  className={`absolute inset-0 h-full w-full object-cover object-[50%_44%] transition-opacity duration-[1000ms] ease-in-out md:object-center ${
                     i === active ? "z-[1] opacity-100" : "z-0 opacity-0"
                   }`}
                 />

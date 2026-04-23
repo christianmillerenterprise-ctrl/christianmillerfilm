@@ -35,6 +35,10 @@ export default function HomePage() {
       {/* Philosophy — compact band */}
       <section className="relative overflow-hidden border-y border-gold/10 bg-wash py-12 md:py-16">
         <div
+          className="pointer-events-none absolute inset-0 halation-ambient opacity-75"
+          aria-hidden
+        />
+        <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_30%,rgba(253,252,248,0.55),transparent_55%)]"
           aria-hidden
         />
@@ -57,6 +61,10 @@ export default function HomePage() {
         className="relative overflow-hidden border-y border-gold/10 bg-depth py-12 md:py-16"
       >
         <div
+          className="pointer-events-none absolute inset-0 halation-ambient"
+          aria-hidden
+        />
+        <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_100%_80%_at_50%_100%,rgba(184,154,106,0.09),transparent_50%)]"
           aria-hidden
         />
@@ -67,6 +75,10 @@ export default function HomePage() {
 
       {/* Closing CTA — hiring / booking */}
       <section className="relative overflow-hidden border-t border-gold/20 bg-gradient-to-b from-ivory/35 via-paper to-paper py-12 text-center shadow-[inset_0_1px_0_rgba(253,252,248,0.65)] md:py-16">
+        <div
+          className="pointer-events-none absolute inset-0 halation-ambient opacity-60"
+          aria-hidden
+        />
         <div className="relative z-[1] mx-auto max-w-2xl px-6 md:px-10">
           <p className="label mb-3">Book your shoot</p>
           <h2 className="font-display text-3xl italic leading-snug md:text-4xl md:leading-snug">

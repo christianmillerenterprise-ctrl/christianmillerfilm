@@ -21,7 +21,7 @@ export default function ShootCard({ shoot, index }) {
         }`}
       >
         <div className="md:col-span-8 [direction:ltr]">
-          <div className="mx-auto w-[85%] max-w-full overflow-hidden rounded-sm border-2 border-gold bg-paper shadow-[0_12px_40px_rgba(42,35,29,0.1)]">
+          <div className="halation-frame mx-auto w-[85%] max-w-full overflow-hidden rounded-sm border-2 border-gold bg-paper">
             <Link
               href={`/work/${shoot.slug}`}
               className="group block overflow-hidden"

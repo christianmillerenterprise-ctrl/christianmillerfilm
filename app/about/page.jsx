@@ -12,15 +12,19 @@ export default function AboutPage() {
   return (
     <section className="relative overflow-hidden border-b border-gold/10 bg-wash py-12 md:py-16 lg:py-20">
       <div
+        className="pointer-events-none absolute inset-0 halation-ambient opacity-65"
+        aria-hidden
+      />
+      <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_15%_35%,rgba(253,252,248,0.85),transparent_55%)]"
         aria-hidden
       />
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
+      <div className="relative z-[1] mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-12 xl:gap-16">
           {/* Portrait — large, sticky on tall viewports */}
           <div className="lg:col-span-7">
             <div className="lg:sticky lg:top-24 lg:self-start">
-              <div className="overflow-hidden rounded-sm border-2 border-gold bg-paper shadow-[0_18px_50px_rgba(42,35,29,0.12)]">
+              <div className="halation-frame overflow-hidden rounded-sm border-2 border-gold bg-paper">
                 <div className="relative aspect-[4/3] w-full min-h-[260px] sm:aspect-[5/4] md:aspect-auto md:h-[min(52vh,520px)] lg:aspect-auto lg:h-[min(72vh,760px)] lg:min-h-[min(56vh,600px)]">
                   {/* eslint-disable-next-line @next/next/no-img-element -- static asset in /public */}
                   <img
