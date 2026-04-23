@@ -9,6 +9,7 @@
 // series there so slides do not stay on one shoot). Work band still
 // uses landscape picks from galleries unless
 // homeLandscapePaths is set. photoAspects.json: npm run gen:aspects
+// Per-slide focal point for home carousels: PHOTO_FOCAL_OVERRIDES (object-position).
 // -----------------------------------------------------------------------------
 
 import photos from "./photos.json";
@@ -23,6 +24,21 @@ const CAROUSEL_EXCLUDED_URLS = new Set([
 function isCarouselExcluded(url) {
   return Boolean(url && CAROUSEL_EXCLUDED_URLS.has(url));
 }
+
+/**
+ * Map public image `src` paths to CSS `object-position` for home carousels.
+ * When a path is listed, carousels set inline `objectPosition` (all viewports).
+ * Omit a path to use default `.hero-carousel-img` / `.work-carousel-img` CSS.
+ * @type {Record<string, string>}
+ */
+export const PHOTO_FOCAL_OVERRIDES = {
+  "/images/bryan-and-amy/bryan-and-amy-05.jpg": "40% 30%",
+  /** Grass / foliage wide — center H; Y slightly above midpoint to lift couple vs sky (mobile crop). */
+  "/images/bryan-and-amy/bryan-and-amy-11.jpg": "50% 48%",
+  /** Hero carousel export of same South Beach session (wide frame); tweak slot if wrong file. */
+  "/images/home-carousel/04.jpg": "50% 48%",
+  "/images/vizcaya/vizcaya-12.jpg": "60% 45%",
+};
 
 /**
  * @typedef {Object} Shoot

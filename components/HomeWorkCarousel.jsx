@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import { PHOTO_FOCAL_OVERRIDES } from "@/data/shoots";
 
 const INTERVAL_MS = 5200;
 
@@ -83,6 +84,11 @@ export default function HomeWorkCarousel({ images }) {
                       : ""
                   }
                   aria-hidden={i !== active}
+                  style={
+                    PHOTO_FOCAL_OVERRIDES[src]
+                      ? { objectPosition: PHOTO_FOCAL_OVERRIDES[src] }
+                      : undefined
+                  }
                   className={`work-carousel-img absolute inset-0 h-full w-full object-cover transition-opacity duration-[1000ms] ease-in-out ${
                     i === active ? "z-[1] opacity-100" : "z-0 opacity-0"
                   }`}
