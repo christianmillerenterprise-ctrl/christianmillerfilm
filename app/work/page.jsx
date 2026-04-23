@@ -21,7 +21,7 @@ export default function WorkIndexPage() {
         />
         <div className="relative z-[1] mx-auto max-w-6xl px-6 py-10 md:px-10 md:py-12">
           <p className="label mb-2">Selected work</p>
-          <h1 className="font-display text-4xl italic leading-tight text-ink md:text-5xl md:leading-tight">
+          <h1 className="halation-text-ink font-display text-4xl italic leading-tight text-ink md:text-5xl md:leading-tight">
             Recent shoots
           </h1>
           <p className="mt-4 max-w-xl font-serif text-[1.02rem] leading-relaxed text-ink/75 md:text-[1.05rem]">

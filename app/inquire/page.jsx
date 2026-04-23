@@ -37,7 +37,7 @@ export default function InquirePage() {
         {/* Form */}
         <div className="md:col-span-6">
           <p className="label mb-4">Commissions & inquiries</p>
-          <h1 className="font-display text-4xl md:text-5xl italic leading-tight">
+          <h1 className="halation-text-ink font-display text-4xl md:text-5xl italic leading-tight">
             Let’s begin a conversation.
           </h1>
           <p className="mt-6 text-ink/80 max-w-prose2 text-[1.05rem] leading-relaxed">

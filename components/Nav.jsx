@@ -9,7 +9,7 @@ export default function Nav() {
           href="/"
           className="group text-ink transition-colors hover:text-gold"
         >
-          <span className="block font-display text-lg leading-snug tracking-wide md:text-2xl md:leading-snug">
+          <span className="halation-text-nav block font-display text-lg leading-snug tracking-wide md:text-2xl md:leading-snug">
             <span className="italic">Christian</span>{" "}
             <span className="not-italic">Miller Photography</span>
           </span>

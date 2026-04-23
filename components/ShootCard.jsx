@@ -41,7 +41,7 @@ export default function ShootCard({ shoot, index }) {
             {String(index + 1).padStart(2, "0")} —{" "}
             {shoot.photos.length} frames
           </p>
-          <h3 className="font-display text-3xl md:text-4xl leading-tight">
+          <h3 className="halation-text-ink font-display text-3xl md:text-4xl leading-tight">
             <Link
               href={`/work/${shoot.slug}`}
               className="italic hover:text-rust"

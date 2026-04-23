@@ -15,6 +15,15 @@ import photos from "./photos.json";
 import photoAspects from "./photoAspects.json";
 import homeCarouselPaths from "./homeCarousel.json";
 
+/** Public paths never used by automated home carousels (still in Work galleries). */
+const CAROUSEL_EXCLUDED_URLS = new Set([
+  "/images/meyly-graduation/meyly-graduation-33.jpg",
+]);
+
+function isCarouselExcluded(url) {
+  return Boolean(url && CAROUSEL_EXCLUDED_URLS.has(url));
+}
+
 /**
  * @typedef {Object} Shoot
  * @property {string} slug       URL slug; must match /public/images/<slug>/
@@ -57,8 +66,8 @@ export const shoots = [
     slug: "vizcaya",
     title: "At The Society of the Four Arts",
     subtitle: "Classical Portraits — Palm Beach",
-    heroIndex: 32,
-    pageHeroIndex: 42,
+    heroIndex: 27,
+    pageHeroIndex: 37,
     description: [
       "A morning in the sculpture garden and grounds of The Society of the Four Arts: clipped hedges, stone paths, and soft light moving through the palms.",
       "We kept compositions spare so the architecture of the garden and the figure share the frame — formal, quiet, and unhurried.",
@@ -148,7 +157,7 @@ export function getHomeHeroCarouselImages(shootList, count = 10) {
     for (const shoot of shootList) {
       if (out.length >= count) break;
       const p = shoot.photos[frame];
-      if (p && !seen.has(p)) {
+      if (p && !seen.has(p) && !isCarouselExcluded(p)) {
         seen.add(p);
         out.push(p);
         addedThisRound = true;
@@ -173,6 +182,7 @@ function landscapeUrlPool(shootList) {
   for (const shoot of shootList) {
     for (const p of shoot.photos) {
       if (!p || seen.has(p)) continue;
+      if (isCarouselExcluded(p)) continue;
       if (!isLandscapePhotoUrl(p)) continue;
       seen.add(p);
       out.push(p);
@@ -196,7 +206,12 @@ function collectLandscapeCarousel(shootList, count, startIndex) {
     for (const shoot of shootList) {
       if (out.length >= count) break;
       const p = shoot.photos[frame];
-      if (p && !seen.has(p) && isLandscapePhotoUrl(p)) {
+      if (
+        p &&
+        !seen.has(p) &&
+        !isCarouselExcluded(p) &&
+        isLandscapePhotoUrl(p)
+      ) {
         seen.add(p);
         out.push(p);
       }
@@ -214,7 +229,7 @@ function collectLandscapeCarousel(shootList, count, startIndex) {
   if (out.length < count) {
     for (const p of landscapeUrlPool(shootList)) {
       if (out.length >= count) break;
-      if (seen.has(p)) continue;
+      if (seen.has(p) || isCarouselExcluded(p)) continue;
       seen.add(p);
       out.push(p);
     }
@@ -234,7 +249,7 @@ function uniqueLandscapeOverride(count) {
   const seen = new Set();
   const out = [];
   for (const u of homeLandscapePaths) {
-    if (!u || seen.has(u)) continue;
+    if (!u || seen.has(u) || isCarouselExcluded(u)) continue;
     seen.add(u);
     out.push(u);
     if (out.length >= count) break;
@@ -250,7 +265,7 @@ function uniqueHomeCarouselPaths(count) {
   const seen = new Set();
   const out = [];
   for (const u of homeCarouselPaths) {
-    if (!u || seen.has(u)) continue;
+    if (!u || seen.has(u) || isCarouselExcluded(u)) continue;
     seen.add(u);
     out.push(u);
     if (out.length >= count) break;

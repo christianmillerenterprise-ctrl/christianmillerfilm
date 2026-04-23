@@ -106,6 +106,32 @@ body {
 }
 
 /* -----------------------------------------------------------------------------
+   Home carousels — object-cover focal point on narrow / portrait viewports
+   Geometric center often clips faces when subjects sit off-center (e.g. right
+   third). Slight right + optical vertical bias reads more “centered” on phones.
+----------------------------------------------------------------------------- */
+.hero-carousel-img,
+.work-carousel-img {
+  object-position: center center;
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .hero-carousel-img {
+    object-position: 58% 46%;
+  }
+  .work-carousel-img {
+    object-position: 55% 48%;
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .hero-carousel-img,
+  .work-carousel-img {
+    object-position: center center;
+  }
+}
+
+/* -----------------------------------------------------------------------------
    Subtle vignette on hero sections
 ----------------------------------------------------------------------------- */
 .hero-vignette::after {
@@ -230,10 +256,41 @@ body {
 /* Title card on dark heroes — faint gold rim-glow behind glass */
 .halation-glass-panel {
   box-shadow:
-    0 0 0 1px rgba(255, 253, 248, 0.1),
-    0 0 56px -12px rgba(210, 175, 120, 0.22),
-    0 0 88px -24px rgba(184, 154, 106, 0.12),
+    0 0 0 1px rgba(255, 253, 248, 0.11),
+    0 0 72px -8px rgba(222, 190, 140, 0.3),
+    0 0 108px -20px rgba(184, 154, 106, 0.18),
     0 14px 44px rgba(0, 0, 0, 0.38);
+}
+
+/* Soft golden halation hugging display headings (layered blurs read as luminous) */
+.halation-text-paper {
+  text-shadow:
+    0 0 22px rgba(255, 249, 238, 0.55),
+    0 0 44px rgba(236, 210, 170, 0.36),
+    0 0 72px rgba(198, 165, 118, 0.24),
+    0 0 110px rgba(184, 154, 106, 0.14),
+    0 1px 4px rgba(8, 6, 5, 0.45);
+}
+
+.halation-text-paper-muted {
+  text-shadow:
+    0 0 14px rgba(255, 248, 235, 0.4),
+    0 0 32px rgba(220, 190, 148, 0.22);
+}
+
+/* Ink titles on cream / wash — warm aureole without muddying strokes */
+.halation-text-ink {
+  text-shadow:
+    0 0 28px rgba(250, 232, 205, 0.52),
+    0 0 54px rgba(224, 198, 155, 0.3),
+    0 0 88px rgba(184, 154, 106, 0.17);
+}
+
+/* Site title in nav — lighter touch */
+.halation-text-nav {
+  text-shadow:
+    0 0 20px rgba(240, 218, 180, 0.34),
+    0 0 44px rgba(184, 154, 106, 0.15);
 }
 
 /* Link hover — slow, subtle */

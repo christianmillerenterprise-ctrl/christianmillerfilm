@@ -40,7 +40,7 @@ export default function AboutPage() {
           {/* Copy */}
           <div className="flex flex-col justify-center lg:col-span-5">
             <p className="label mb-3">About</p>
-            <h1 className="font-display text-4xl italic leading-[1.06] text-ink md:text-5xl lg:text-6xl lg:leading-[1.04]">
+            <h1 className="halation-text-ink font-display text-4xl italic leading-[1.06] text-ink md:text-5xl lg:text-6xl lg:leading-[1.04]">
               Christian Miller
             </h1>
 

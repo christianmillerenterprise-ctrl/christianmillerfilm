@@ -18,7 +18,7 @@ export default function HomePage() {
           <h1 className="sr-only">
             Christian Miller Photography — Miami, Florida
           </h1>
-          <p className="font-display text-3xl leading-snug text-paper sm:text-4xl md:text-5xl lg:text-6xl md:leading-tight italic">
+          <p className="halation-text-paper font-display text-3xl leading-snug text-paper sm:text-4xl md:text-5xl lg:text-6xl md:leading-tight italic">
             Devoted to classical and beautiful things.
           </p>
           <p className="mt-8 md:mt-10">
@@ -81,7 +81,7 @@ export default function HomePage() {
         />
         <div className="relative z-[1] mx-auto max-w-2xl px-6 md:px-10">
           <p className="label mb-3">Book your shoot</p>
-          <h2 className="font-display text-3xl italic leading-snug md:text-4xl md:leading-snug">
+          <h2 className="halation-text-ink font-display text-3xl italic leading-snug md:text-4xl md:leading-snug">
             If you’re hiring a photographer and what you’ve seen here feels
             like the right fit, I’d love to hear what you’re planning.
           </h2>

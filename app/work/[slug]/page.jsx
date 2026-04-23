@@ -43,10 +43,10 @@ export default function ShootPage({ params }) {
         <div className="absolute inset-0 z-[2] flex items-end">
           <div className="max-w-6xl w-full mx-auto px-6 md:px-10 pb-12 md:pb-14">
             <div className="halation-glass-panel inline-block max-w-3xl rounded-sm bg-black/35 px-5 py-5 md:px-6 md:py-6 backdrop-blur-[2px] border border-white/10 text-paper">
-              <p className="label tracking-widest2 text-paper/95">
+              <p className="halation-text-paper-muted label tracking-widest2 text-paper/95">
                 {shoot.subtitle}
               </p>
-              <h1 className="font-display text-5xl md:text-7xl italic leading-[1.02] mt-2 drop-shadow-sm">
+              <h1 className="halation-text-paper font-display text-5xl md:text-7xl italic leading-[1.02] mt-2">
                 {shoot.title}
               </h1>
             </div>

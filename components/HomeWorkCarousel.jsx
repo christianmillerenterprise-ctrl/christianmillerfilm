@@ -7,8 +7,8 @@ const INTERVAL_MS = 5200;
 
 /**
  * Work teaser on the home page — headline and CTA above a compact, gold-framed
- * carousel (hero carousel at top of page stays unframed). On small screens,
- * object-position is nudged above center so figures stay visually centered.
+ * carousel (hero carousel at top of page stays unframed). Portrait mobile
+ * focal bias via `.work-carousel-img` in globals.css.
  *
  * @param {{ images: string[] }} props
  */
@@ -45,7 +45,7 @@ export default function HomeWorkCarousel({ images }) {
     <div className="mx-auto max-w-3xl">
       <header className="mb-8 px-1 text-center md:mb-10">
         <p className="label mb-3 text-ink/90">Work</p>
-        <h2 className="font-display text-3xl italic leading-tight text-ink md:text-4xl">
+        <h2 className="halation-text-ink font-display text-3xl italic leading-tight text-ink md:text-4xl">
           See it all in one place
         </h2>
         <p className="mx-auto mt-4 max-w-md text-[1.05rem] leading-relaxed text-ink/80">
@@ -83,7 +83,7 @@ export default function HomeWorkCarousel({ images }) {
                       : ""
                   }
                   aria-hidden={i !== active}
-                  className={`absolute inset-0 h-full w-full object-cover object-[50%_44%] transition-opacity duration-[1000ms] ease-in-out md:object-center ${
+                  className={`work-carousel-img absolute inset-0 h-full w-full object-cover transition-opacity duration-[1000ms] ease-in-out ${
                     i === active ? "z-[1] opacity-100" : "z-0 opacity-0"
                   }`}
                 />
