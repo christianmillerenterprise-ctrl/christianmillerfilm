@@ -4,16 +4,32 @@ import Footer from "@/components/Footer";
 import GrainOverlay from "@/components/GrainOverlay";
 
 export const metadata = {
-  title: "Christian Miller — Photographs",
+  title: "Christian Miller — Classical Photography in Miami",
   description:
     "Christian Miller is a photographer devoted to classical and beautiful things. Portraits, pregnancy, editorial, and graduation work based in Miami.",
   openGraph: {
-    title: "Christian Miller — Photographs",
+    title: "Christian Miller — Classical Photography in Miami",
     description:
       "Portraits, pregnancy, editorial, and graduation work — devoted to classical and beautiful things.",
     url: "https://www.christianmillerfilm.com",
     siteName: "Christian Miller",
     type: "website",
+    images: [
+      {
+        url: "https://www.christianmillerfilm.com/images/bryan-and-amy/bryan-and-amy-01.jpg",
+        width: 1200,
+        height: 1500,
+        alt: "Christian Miller — Classical Photography in Miami",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Christian Miller — Classical Photography in Miami",
+    description: "Devoted to classical and beautiful things.",
+    images: [
+      "https://www.christianmillerfilm.com/images/bryan-and-amy/bryan-and-amy-01.jpg",
+    ],
   },
   icons: {
     icon: "/favicon.ico",

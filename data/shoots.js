@@ -17,9 +17,7 @@ import photoAspects from "./photoAspects.json";
 import homeCarouselPaths from "./homeCarousel.json";
 
 /** Public paths never used by automated home carousels (still in Work galleries). */
-const CAROUSEL_EXCLUDED_URLS = new Set([
-  "/images/meyly-graduation/meyly-graduation-33.jpg",
-]);
+const CAROUSEL_EXCLUDED_URLS = new Set([]);
 
 function isCarouselExcluded(url) {
   return Boolean(url && CAROUSEL_EXCLUDED_URLS.has(url));
